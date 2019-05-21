@@ -8,3 +8,11 @@
 ## D,23
 ## E,67
 ##
+L = open('data.csv','r').readlines()
+L = [line.split('\t') for line in L]
+dic = {t[0]:0 for t in L}
+
+for t in L:
+    dic[t[0]]+=int(t[1])
+
+[print('{0},{1}'.format(x, y)) for x,y in sorted(dic.items())]

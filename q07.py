@@ -16,3 +16,7 @@
 ##    ('9', ['A', 'B', 'E', 'C'])
 ##
 ##
+L = open('data.csv','r').readlines()
+L = [line.split('\t') for line in L]
+L1 = sorted(set([i[1] for i in L]))
+A = [print((i,[j[0] for j in L if j[1]==i])) for i in L1]

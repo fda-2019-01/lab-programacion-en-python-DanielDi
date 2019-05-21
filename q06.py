@@ -13,3 +13,14 @@
 ## iii,2,7
 ## jjj,2,5
 ##
+L = open('data.csv','r').readlines()
+L = [line.split('\t') for line in L]
+A = []
+for i in L:
+    A+=i[4].split(',')
+dic = {}
+for i in A:
+    dic[i[0:3]]=[]
+for x in A:
+    dic[x[0:3]].append(x[4])
+[print(f'{i},{max(dic[i])},{min(dic[i])}') for i in dic]

@@ -14,3 +14,9 @@
 ## 11,2
 ## 12,3
 ##
+
+L = open('data.csv','r').readlines()
+L = [line.split('\t') for line in L]
+L = [line[2][5:7] for line in L]
+a = sorted(set(L))
+[print(f'{i},{L.count(i)}') for i in a]
