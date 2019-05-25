@@ -10,3 +10,15 @@
 ## f,110
 ## g,35
 ##
+L = open('data.csv','r').readlines()
+L = [line.split('\t') for line in L]
+A = []
+for i in L:
+    A += i[3].split(',')
+A = sorted(set(A))
+for i in A:
+    a = 0
+    for j in L:
+        if(i in j[3]):
+            a+=int(j[1])
+    print(f'{i},{a}')

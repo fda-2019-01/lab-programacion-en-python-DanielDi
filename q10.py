@@ -16,14 +16,14 @@ import csv
 ## jjj,18
 ##
 ##
-with open('data.csv', 'r') as f:
-    x = csv.reader(f,
-                   delimiter='\t')
-
-    ## se lee una linea a la vez
-    print(x)
-    L1 = sorted(set([i[4].split(',') for i in x]))
-#    L2 = []
-#    for i in x:
-#        L2+=i[4]
-#    A = [print(i,L2.count(i)) for i in L1]
+L = open('data.csv','r').readlines()
+L = [line.split('\t') for line in L]
+L1 = [line[4].split(',') for line in L]
+A = []
+for i in L1:
+    A+=i
+B = [i[0:3] for i in A]
+Baux = sorted(set(B))
+[print(f'{i},{B.count(i)}') for i in Baux]
+#L2 = [line]
+#L1 = sorted(set([i[4] for i in L]))
